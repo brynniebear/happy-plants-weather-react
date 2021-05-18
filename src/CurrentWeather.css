@@ -1,0 +1,26 @@
+.CurrentWeather {
+  color: #ffffff;
+}
+
+h1 {
+  font-family: "Dancing script", cursive;
+  font-size: 2.5em;
+}
+
+.card {
+  background: #b2594c;
+  border: 3px solid #3a1e15;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px 50px 10px;
+  box-shadow: 5px 5px 10px #000000;
+}
+
+.card-header {
+  background: #b2594c;
+  text-align: left;
+}
+
+.card-body {
+  margin: 0 50px;
+}

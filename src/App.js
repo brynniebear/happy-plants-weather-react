@@ -1,10 +1,14 @@
 import './App.css';
-import axios from 'axios';
+import CurrentWeather from "./CurrentWeather";
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Today's Weather</h1>
+    <div class="container">
+      <div className="App">
+        <h2>Grow Happy Plants</h2>
+        <h3>with Mother Nature's help</h3>
+        <CurrentWeather />
+      </div>
     </div>
   );
 }
