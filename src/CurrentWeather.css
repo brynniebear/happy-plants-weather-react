@@ -22,5 +22,35 @@ h1 {
 }
 
 .card-body {
-  margin: 0 50px;
+  margin: 0 20px 0 0;
+}
+
+.search {
+  text-align: right;
+}
+
+.search .search-form {
+  display: inline;
+}
+
+.search .button {
+  background: #c3c4cd;
+  border: 1px solid #3a1e15;
+  color: #3a1e15;
+  font-size: 1.1em;
+  margin: 2px;
+  transition: 200ms ease-in-out;
+}
+
+.search .button:hover {
+  background: #3a1e15;
+  border: 1px solid #b2594c;
+  color: #ffffff;
+}
+
+.search .change-city-text {
+  border: 1px solid #3a1e15;
+  font-size: 1.1em;
+  margin: 2px;
+  padding: 5px;
 }

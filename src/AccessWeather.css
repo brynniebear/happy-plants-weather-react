@@ -1,0 +1,44 @@
+.current-weather-image {
+  display: inline;
+  color: #c3c4cd;
+  width: 10em;
+}
+
+.date-time {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.city {
+  text-align: left;
+}
+
+.city .city-name {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5em;
+}
+
+.temperature {
+  font-size: 1.2em;
+}
+
+.temperature .temp-value {
+  font-size: 8em;
+  font-weight: 600;
+  line-height: 0.5;
+}
+
+.weather-details {
+  text-align: right;
+  line-height: 2.2em;
+}
+
+.weather-details .current-description {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.weather-details {
+  margin-top: 25px;
+}

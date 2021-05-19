@@ -23,3 +23,8 @@ body {
 .App h3 {
   margin-bottom: 10px;
 }
+
+footer {
+  text-align: center;
+  color: #3a1e15;
+}
