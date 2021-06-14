@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import DisplayedDate from "./DisplayedDate";
 import Forecast from "./Forecast";
 import "./CurrentWeather.css";
 
@@ -26,6 +27,7 @@ export default function CurrentWeather(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      date: new Date(response.data.dt * 1000),
       iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       ready: true,
     });
@@ -83,9 +85,9 @@ if (weatherData.ready === true) {
                       Welcome to <span className="city-name">{weatherData.cityName}</span>
                     </h4>
                   </div>
-                  <div className="date-time">
-                    <p>Last Updated on May 18 at 18:00</p>
-                  </div>
+
+                    <DisplayedDate details={weatherData.date} />
+
                 </div>
                 <div className="col-2">
                   <img src={weatherData.iconUrl} alt={weatherData.description} className="current-weather-image"/>
