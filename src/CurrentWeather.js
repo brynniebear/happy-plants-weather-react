@@ -1,22 +1,47 @@
 import React, { useState } from 'react';
-import AccessWeather from "./AccessWeather";
+import axios from "axios";
 import Forecast from "./Forecast";
 import "./CurrentWeather.css";
 
-export default function CurrentWeather() {
-  const [city, setCity] = useState("Vancouver");
-  const [currentWeather, setCurrentWeather] = useState("Enter a city name to see the current weather ☁");
+export default function CurrentWeather(props) {
+  const [city, setCity] = useState(props.defaultCity);
+  const [weatherData, setWeatherData] = useState( {ready:false});
 
   function handleSubmit(event) {
-    event.preventDefault();
-    if (city) {
-      setCurrentWeather(<AccessWeather newCity={city} ready={false} />);
-  }
-}
+        event.preventDefault();
+        if (city) {
+          search();
+      }
+    }
   
   function searchCity(event) {
-    setCity(event.target.value);
+      setCity(event.target.value);
+    }
+
+  function showWeather(response) {
+    console.log(response);
+    setWeatherData({
+      cityName: city,
+      temperature: response.data.main.temp,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      ready: true,
+    });
   }
+
+function search() {
+  const apiKey = `008503e09bc70b0d4ab69e6985ccd034`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeather);
+}
+
+if (city === props.defaultCity && weatherData.ready === false) {
+  search(city);
+}
+
+if (weatherData.ready === true) {
   return (
   <div className="Current-Weather">
     <div className="card">
@@ -51,7 +76,37 @@ export default function CurrentWeather() {
         </div>
       </div>
         <div className="card-body">
-            {currentWeather}
+              <div className="row AcessWeather">
+                <div className="col-6">
+                  <div className="city">
+                    <h4>
+                      Welcome to <span className="city-name">{weatherData.cityName}</span>
+                    </h4>
+                  </div>
+                  <div className="date-time">
+                    <p>Last Updated on May 18 at 18:00</p>
+                  </div>
+                </div>
+                <div className="col-2">
+                  <img src={weatherData.iconUrl} alt={weatherData.description} className="current-weather-image"/>
+                </div>
+              <div className="col-4">
+                <div className="temperature">
+                  <p>
+                    <span className="temp-value">{Math.round(weatherData.temperature)}</span>°C
+                  </p>
+                </div>
+                <div className="weather-details">
+                  <div className="current-description">{weatherData.description}</div>
+                  Wind:
+                  <span className="wind-speed"> {Math.round(weatherData.wind)}</span>km/h
+                  <br />
+                  Humidity:
+                  <span className="humidity"> {weatherData.humidity}</span>%
+                  <br />
+                </div>
+              </div>
+            </div>
           <div className="row">
             <Forecast />
           </div>
@@ -59,4 +114,7 @@ export default function CurrentWeather() {
     </div>
   </div>
   );
+    } else {
+  return ("Loading...")
+  }
 }
