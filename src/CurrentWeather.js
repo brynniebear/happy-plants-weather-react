@@ -4,16 +4,16 @@ import Forecast from "./Forecast";
 import "./CurrentWeather.css";
 
 export default function CurrentWeather() {
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState("Vancouver");
   const [currentWeather, setCurrentWeather] = useState("Enter a city name to see the current weather ☁");
 
   function handleSubmit(event) {
     event.preventDefault();
     if (city) {
-      setCurrentWeather(<AccessWeather newCity={city} />);
+      setCurrentWeather(<AccessWeather newCity={city} ready={false} />);
   }
 }
-
+  
   function searchCity(event) {
     setCity(event.target.value);
   }
