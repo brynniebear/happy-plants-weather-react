@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import DisplayedDate from "./DisplayedDate";
+import DisplayedWeather from "./DisplayedWeather";
 import Forecast from "./Forecast";
 import "./CurrentWeather.css";
 
@@ -10,10 +10,8 @@ export default function CurrentWeather(props) {
 
   function handleSubmit(event) {
         event.preventDefault();
-        if (city) {
           search();
       }
-    }
   
   function searchCity(event) {
       setCity(event.target.value);
@@ -22,7 +20,7 @@ export default function CurrentWeather(props) {
   function showWeather(response) {
     console.log(response);
     setWeatherData({
-      cityName: city,
+      cityName: response.data.name,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -37,10 +35,6 @@ function search() {
   const apiKey = `008503e09bc70b0d4ab69e6985ccd034`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
-}
-
-if (city === props.defaultCity && weatherData.ready === false) {
-  search(city);
 }
 
 if (weatherData.ready === true) {
@@ -78,37 +72,7 @@ if (weatherData.ready === true) {
         </div>
       </div>
         <div className="card-body">
-              <div className="row AcessWeather">
-                <div className="col-6">
-                  <div className="city">
-                    <h4>
-                      Welcome to <div className="city-name">{weatherData.cityName}</div>
-                    </h4>
-                  </div>
-
-                    <DisplayedDate details={weatherData.date} />
-
-                </div>
-                <div className="col-2">
-                  <img src={weatherData.iconUrl} alt={weatherData.description} className="current-weather-image"/>
-                </div>
-              <div className="col-4">
-                <div className="temperature">
-                  <p>
-                    <span className="temp-value">{Math.round(weatherData.temperature)}</span>°C
-                  </p>
-                </div>
-                <div className="weather-details">
-                  <div className="current-description">{weatherData.description}</div>
-                  Wind:
-                  <span className="wind-speed"> {Math.round(weatherData.wind)}</span>km/h
-                  <br />
-                  Humidity:
-                  <span className="humidity"> {weatherData.humidity}</span>%
-                  <br />
-                </div>
-              </div>
-            </div>
+            <DisplayedWeather details={weatherData} />
           <div className="row">
             <Forecast />
           </div>
@@ -117,6 +81,7 @@ if (weatherData.ready === true) {
   </div>
   );
     } else {
-  return ("Loading...")
+    search()
+    return ("Loading...")
   }
 }
