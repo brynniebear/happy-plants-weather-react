@@ -25,7 +25,7 @@ return (
                 <div className="weather-details">
                   <div className="current-description">{props.details.description}</div>
                   Wind:
-                  <span className="wind-speed"> {Math.round(props.details.wind)}</span>km/h
+                  <span className="wind-speed"> {Math.round(props.details.wind * 3.6)}</span>km/h
                   <br />
                   Humidity:
                   <span className="humidity"> {props.details.humidity}</span>%
