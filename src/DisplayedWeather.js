@@ -4,7 +4,7 @@ import DisplayedDate from "./DisplayedDate";
 export default function DisplayedWeather (props) {
 
 return (    
-  <div className="row AcessWeather">
+  <div className="row DisplayedWeather">
                 <div className="col-6">
                   <div className="city">
                     <h4>

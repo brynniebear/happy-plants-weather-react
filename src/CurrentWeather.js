@@ -18,7 +18,6 @@ export default function CurrentWeather(props) {
     }
 
   function showWeather(response) {
-    console.log(response);
     setWeatherData({
       cityName: response.data.name,
       temperature: response.data.main.temp,
@@ -47,7 +46,7 @@ if (weatherData.ready === true) {
           <div className="col-4">
             <h1>Current Weather</h1>
           </div>
-          <div className="col-8">
+          <div className="col-8 search-interaction">
             <form className="search-form" onSubmit={handleSubmit}>
               <input
                 type="search"
@@ -63,7 +62,6 @@ if (weatherData.ready === true) {
                 value="Change City"
               />
             </form>
-            <button className="btn btn-light button">Current Location</button>
             <button className="btn btn-light button">
               <span className="units">°F</span>
             </button>
