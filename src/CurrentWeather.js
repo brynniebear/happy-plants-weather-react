@@ -82,7 +82,7 @@ if (weatherData.ready === true) {
                 <div className="col-6">
                   <div className="city">
                     <h4>
-                      Welcome to <span className="city-name">{weatherData.cityName}</span>
+                      Welcome to <div className="city-name">{weatherData.cityName}</div>
                     </h4>
                   </div>
 
