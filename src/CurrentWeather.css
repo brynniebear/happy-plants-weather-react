@@ -101,3 +101,10 @@ h1 {
 .weather-details {
   margin-top: 25px;
 }
+
+.loading {
+  color: #3a1e15;
+  margin: 20px 0;
+  padding-bottom: 15px;
+  font-size: 1.5em;
+}

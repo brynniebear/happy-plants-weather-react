@@ -36,6 +36,19 @@ function search() {
   axios.get(apiUrl).then(showWeather);
 }
 
+function getLocation(result) {
+  let latitude = result.coords.latitude;
+  let longitude = result.coords.longitude;
+  let units = `metric`;
+  let apiKey = `0b3b5277b18a1568b6ccacadee647a9b`;
+  let apiUrlLatLon = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`
+  axios.get(apiUrlLatLon).then(showWeather);
+}
+
+function accessNavigator() {
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
+
 if (weatherData.ready === true) {
   return (
   <div className="Current-Weather">
@@ -62,8 +75,8 @@ if (weatherData.ready === true) {
                 value="Change City"
               />
             </form>
-            <button className="btn btn-light button">
-              <span className="units">°F</span>
+            <button className="btn btn-light button" onClick={accessNavigator} >
+              Current Location
             </button>
           </div>
           </div>
@@ -80,6 +93,6 @@ if (weatherData.ready === true) {
   );
     } else {
     search()
-    return ("Loading...")
+    return (<div className="loading">Loading...🌺</div>);
   }
 }
