@@ -20,6 +20,7 @@ export default function CurrentWeather(props) {
   function showWeather(response) {
     setWeatherData({
       cityName: response.data.name,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -85,7 +86,7 @@ if (weatherData.ready === true) {
         <div className="card-body">
             <DisplayedWeather details={weatherData} />
           <div className="row">
-            <Forecast />
+            <Forecast coordinates={weatherData.coordinates} />
           </div>
         </div>
     </div>
