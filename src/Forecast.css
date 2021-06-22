@@ -1,3 +1,12 @@
 .Forecast {
   text-align: center;
+  margin-top: 30px;
+}
+
+.forecast-icon .current-weather-image {
+  width: 6em;
+}
+
+.forecast-temperature span {
+  font-size: 20px;
 }
