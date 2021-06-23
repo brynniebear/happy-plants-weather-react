@@ -7,17 +7,6 @@ h1 {
   font-size: 2.5em;
 }
 
-h6 {
-  font-family: "Dancing script", cursive;
-  font-size: 2.5em;
-  text-align: left;
-  margin-top: 20px;
-}
-
-hr {
-  color: #3a1e15;
-}
-
 .card {
   background: #b2594c;
   border: 3px solid #3a1e15;
@@ -115,9 +104,6 @@ hr {
   margin-top: 25px;
 }
 
-.loading {
+hr {
   color: #3a1e15;
-  margin: 20px 0;
-  padding-bottom: 15px;
-  font-size: 1.5em;
 }
