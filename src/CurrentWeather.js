@@ -85,9 +85,8 @@ export default function CurrentWeather(props) {
           </div>
           <div className="card-body">
             <DisplayedWeather details={weatherData} />
-            <div className="row">
-              <Forecast coordinates={weatherData.coordinates} />
-            </div>
+            <hr/>
+            <Forecast coordinates={weatherData.coordinates} />
           </div>
         </div>
       </div>
