@@ -57,10 +57,10 @@ export default function CurrentWeather(props) {
           <div className="search">
             <div className="card-header">
               <div className="row">
-                <div className="col-4">
+                <div className="col-md-4">
                   <h1>Current Weather</h1>
                 </div>
-                <div className="col-8 search-interaction">
+                <div className="col-md-8 search-interaction">
                   <form className="search-form" onSubmit={handleSubmit}>
                     <input
                       type="search"
