@@ -28,3 +28,9 @@ footer {
   text-align: center;
   color: #3a1e15;
 }
+
+@media (max-width: 992px) {
+  body {
+    text-align: center;
+  }
+}

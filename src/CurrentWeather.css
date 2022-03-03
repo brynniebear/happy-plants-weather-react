@@ -107,3 +107,12 @@ h1 {
 hr {
   color: #3a1e15;
 }
+
+@media (max-width: 992px) {
+  .city .city-name {
+    font-size: 2.5em;
+  }
+  .temperature .temp-value {
+    font-size: 4em;
+  }
+}
