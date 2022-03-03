@@ -6,7 +6,7 @@ export default function DisplayedWeather(props) {
 
   return (
     <div className="row DisplayedWeather">
-      <div className="col-6">
+      <div className="col-md-6">
         <div className="city">
           <h4>
             Welcome to <div className="city-name">{props.details.cityName}</div>
@@ -14,10 +14,10 @@ export default function DisplayedWeather(props) {
         </div>
         <DisplayedDate details={props.details.date} />
       </div>
-      <div className="col-2">
+      <div className="col-md-2">
         <WeatherIcon iconCode={props.details.iconCode} altDescription={props.details.description} />
       </div>
-      <div className="col-4">
+      <div className="col-md-4">
         <div className="temperature">
           <p>
             <span className="temp-value">{Math.round(props.details.temperature)}</span>°C
