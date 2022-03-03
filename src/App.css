@@ -30,7 +30,7 @@ footer {
 }
 
 @media (max-width: 992px) {
-  body {
+  body, .App h2, .App h3 {
     text-align: center;
   }
 }

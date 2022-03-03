@@ -112,7 +112,17 @@ hr {
   .city .city-name {
     font-size: 2.5em;
   }
-  .temperature .temp-value {
+  .temperature .temp-value,
+  .current-weather-image {
     font-size: 4em;
+  }
+  h1, 
+  .card-header,
+  .search-interaction,
+  .date-time,
+  .city,
+  .weather-details
+  {
+    text-align: center;
   }
 }
