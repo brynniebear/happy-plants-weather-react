@@ -117,7 +117,8 @@ hr {
   }
   .current-weather-image {
     display: block;
-    max-width: 20px;
+    margin: 0 auto;
+    max-width: 1em;
   }
   h1, 
   .card-header,
