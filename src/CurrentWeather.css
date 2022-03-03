@@ -110,11 +110,14 @@ hr {
 
 @media (max-width: 992px) {
   .city .city-name {
-    font-size: 2.5em;
+    font-size: 2em;
   }
-  .temperature .temp-value,
-  .current-weather-image {
+  .temperature .temp-value {
     font-size: 4em;
+  }
+  .current-weather-image {
+    display: block;
+    max-width: 20px;
   }
   h1, 
   .card-header,
